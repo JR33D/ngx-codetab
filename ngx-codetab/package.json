@@ -1,0 +1,29 @@
+{
+   "name": "ngx-codetab",
+   "version": "1.0.0",
+   "author": {
+      "email": "JReed129@gmail.com",
+      "name": "Jeremy Reed",
+      "url": "http://jr33d.github.io"
+   },
+   "repository": {
+      "type": "GitHub",
+      "url": "https://github.com/jr33d/ngx-codetab"
+   },
+   "homepage": "https://github.com/jr33d/ngx-codetab#readme",
+   "bugs": {
+      "url": "https://github.com/jr33d/ngx-codetab/issues"
+   },
+   "keywords": ["Angular", "Tabs", "Code", "Component", "ngx"],
+   "license": "The Unlicense",
+   "dependencies": {
+      "@angular/common": "^6.0.3",
+      "@angular/compiler": "^6.0.3",
+      "@angular/core": "^6.0.3",
+      "@angular/platform-browser": "^6.0.3",
+      "@angular/platform-browser-dynamic": "^6.0.3",
+      "@angular-package/prism": "^2.0.2",
+      "prismjs": "^1.14.0",
+      "rxjs": "^6.2.0"
+   }
+}

@@ -1,0 +1,15 @@
+<div ng-app="app" ng-controller="CodeCtrl" class="container">
+    <h2>Tabbed Code Boxes</h2>
+    <ngx-codetab-collection>
+        <ngx-codetab *ngFor="let item of code" [title]="item.title" [language]="item.language" [source]="item.source"></ngx-codetab>
+    </ngx-codetab-collection>
+
+    <h2>Seperate Code Boxes</h2>
+    <ngx-codebox [title]="phpItem.title" [language]="phpItem.language" [source]="phpItem.source"></ngx-codebox>
+    <ngx-codebox [title]="jsItem.title" [language]="jsItem.language" [source]="jsItem.source"></ngx-codebox>
+
+    <h2>Custom Named Code Tabs</h2>
+    <ngx-codetab-collection>
+        <ngx-codetab *ngFor="let item of code; index as i" title="Tab {{i + 1}}" [language]="item.language" [source]="item.source"></ngx-codetab>
+    </ngx-codetab-collection>
+</div>

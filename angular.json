@@ -1,0 +1,156 @@
+{
+   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+   "version": 1,
+   "newProjectRoot": "",
+   "projects": {
+      "ngx-codetab-demo": {
+         "root": "ngx-codetab-demo",
+         "sourceRoot": "ngx-codetab-demo/src",
+         "projectType": "application",
+         "prefix": "ngx-demo",
+         "schematics": {
+            "@schematics/angular:component": {
+               "styleext": "scss"
+            }
+         },
+         "architect": {
+            "build": {
+               "builder": "@angular-devkit/build-angular:browser",
+               "options": {
+                  "outputPath": "docs",
+                  "index": "ngx-codetab-demo/src/index.html",
+                  "main": "ngx-codetab-demo/src/main.ts",
+                  "polyfills": "ngx-codetab-demo/src/polyfills.ts",
+                  "tsConfig": "ngx-codetab-demo/src/tsconfig.app.json",
+                  "assets": ["ngx-codetab-demo/src/favicon.png", "ngx-codetab-demo/src/assets"],
+                  "styles": [
+                     "ngx-codetab-demo/src/styles.scss"
+                  ],
+                  "scripts": []
+               },
+               "configurations": {
+                  "production": {
+                     "fileReplacements": [
+                        {
+                           "replace": "ngx-codetab-demo/src/environments/environment.ts",
+                           "with": "ngx-codetab-demo/src/environments/environment.prod.ts"
+                        }
+                     ],
+                     "optimization": true,
+                     "outputHashing": "all",
+                     "sourceMap": false,
+                     "extractCss": true,
+                     "namedChunks": false,
+                     "aot": true,
+                     "extractLicenses": true,
+                     "vendorChunk": false,
+                     "buildOptimizer": true
+                  }
+               }
+            },
+            "serve": {
+               "builder": "@angular-devkit/build-angular:dev-server",
+               "options": {
+                  "browserTarget": "ngx-codetab-demo:build"
+               },
+               "configurations": {
+                  "production": {
+                     "browserTarget": "ngx-codetab-demo:build:production"
+                  }
+               }
+            },
+            "extract-i18n": {
+               "builder": "@angular-devkit/build-angular:extract-i18n",
+               "options": {
+                  "browserTarget": "ngx-codetab-demo:build"
+               }
+            },
+            "test": {
+               "builder": "@angular-devkit/build-angular:karma",
+               "options": {
+                  "main": "ngx-codetab-demo/src/test.ts",
+                  "polyfills": "ngx-codetab-demo/src/polyfills.ts",
+                  "tsConfig": "ngx-codetab-demo/src/tsconfig.spec.json",
+                  "karmaConfig": "ngx-codetab-demo/src/karma.conf.js",
+                  "styles": [
+                     "ngx-codetab-demo/src/styles.scss"
+                    ],
+                  "scripts": [],
+                  "assets": ["ngx-codetab-demo/src/favicon.png", "ngx-codetab-demo/src/assets"]
+               }
+            },
+            "lint": {
+               "builder": "@angular-devkit/build-angular:tslint",
+               "options": {
+                  "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+                  "exclude": ["**/node_modules/**"]
+               }
+            }
+         }
+      },
+      "ngx-codetab-demo-e2e": {
+         "root": "ngx-codetab-demo/e2e/",
+         "projectType": "application",
+         "architect": {
+            "e2e": {
+               "builder": "@angular-devkit/build-angular:protractor",
+               "options": {
+                  "protractorConfig": "ngx-codetab-demo/e2e/protractor.conf.js",
+                  "devServerTarget": "ngx-codetab-demo:serve"
+               }
+            },
+            "lint": {
+               "builder": "@angular-devkit/build-angular:tslint",
+               "options": {
+                  "tsConfig": "ngx-codetab-demo/e2e/tsconfig.e2e.json",
+                  "exclude": ["**/node_modules/**"]
+               }
+            }
+         }
+      },
+      "ngx-codetab": {
+         "root": "ngx-codetab",
+         "sourceRoot": "ngx-codetab/src",
+         "projectType": "library",
+         "prefix": "ngx",
+         "schematics": {
+            "@schematics/angular:component": {
+               "styleext": "scss"
+            }
+         },
+         "architect": {
+            "build": {
+               "builder": "@angular-devkit/build-ng-packagr:build",
+               "options": {
+                  "tsConfig": "ngx-codetab/tsconfig.lib.json",
+                  "project": "ngx-codetab/ng-package.json"
+               },
+               "configurations": {
+                  "production": {
+                     "project": "ngx-codetab/ng-package.prod.json"
+                  }
+               }
+            },
+            "test": {
+               "builder": "@angular-devkit/build-angular:karma",
+               "options": {
+                  "main": "ngx-codetab/src/test.ts",
+                  "tsConfig": "ngx-codetab/tsconfig.spec.json",
+                  "karmaConfig": "ngx-codetab/karma.conf.js"
+               }
+            },
+            "lint": {
+               "builder": "@angular-devkit/build-angular:tslint",
+               "options": {
+                  "tsConfig": [
+                     "ngx-codetab/tsconfig.lib.json",
+                     "ngx-codetab/tsconfig.spec.json"
+                  ],
+                  "exclude": ["**/node_modules/**"]
+               }
+            }
+         }
+      }
+   },
+   "defaultProject": "ngx-codetab"
+}

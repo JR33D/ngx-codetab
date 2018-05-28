@@ -1,0 +1,10 @@
+<div class="codebox">
+    <div class="codetabs-header">
+        <ul>
+            <li *ngFor="let tab of tabs" [ngClass]="{active: tab.selected}" class="codebox-{{tab.language | lowercase}}">
+                <a href="javascript:void(0);" (click)="select(tab)">{{tab.title || (tab.language | uppercase)}}</a>
+            </li>
+        </ul>
+    </div>
+    <ng-content></ng-content>
+</div>

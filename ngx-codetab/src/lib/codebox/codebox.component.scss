@@ -1,0 +1,39 @@
+@import '../../styles.scss';
+
+.codebox {
+    margin-bottom: 16px;
+  }
+
+  .codebox-header, .codetabs-header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background: lighten($gray, 10%);
+  }
+
+  .codebox-header {
+    padding: 6px 16px;
+
+    @each $item in $colors {
+      &.codebox-#{nth($item, 1)} {
+        background-color: nth($item, 2);
+      }
+    }
+  }
+
+  .codebox-content {
+    padding: 16px;
+    font-family: Inconsolata, monospaced;
+    font-size: 14px;
+    color: #fff;
+    background-color: $gray;
+
+    pre {
+      margin: 0;
+    }
+
+    .codetab-content {
+      display: none;
+      &.active { display: block; }
+    }
+  }
