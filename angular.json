@@ -24,7 +24,8 @@
                   "tsConfig": "ngx-codetab-demo/src/tsconfig.app.json",
                   "assets": ["ngx-codetab-demo/src/favicon.png", "ngx-codetab-demo/src/assets"],
                   "styles": [
-                     "ngx-codetab-demo/src/styles.scss"
+                     "ngx-codetab-demo/src/styles.scss",
+                     "node_modules/prismjs/themes/prism-tomorrow.css"
                   ],
                   "scripts": []
                },

@@ -2,6 +2,12 @@ All notable changes to this project will be documented in this file.
 We follow the [Semantic Versioning 2.0.0](http://semver.org/) format.
 For more information about the type of information that should be included here look at [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## [1.0.0] - 2018-05-28
+
+### Added
+
+* `ngx-codebox` and `ngx-codetab-collection` with `ngx-codetab` released for use.
+* PrismJs highlighting used for syntax highlighting
 
 ## [Unreleased] - TBD
 
@@ -29,4 +35,5 @@ For more information about the type of information that should be included here 
 
 *  Nothing.
 
-[Unreleased](https://github/jr33d/ngx-codetab)
+[Unreleased](https://github.com/jr33d/ngx-codetab)
+[1.0.0](https://github.com/jr33d/ngx-codetab/releases/tags/1.0.0)

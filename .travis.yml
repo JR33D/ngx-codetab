@@ -21,7 +21,6 @@ deploy:
     skip_cleanup: true
     on:
         branch: master
-        condition: ("${oldPublishedVersion}" != "${newPkgVersion}")
 notifications:
     email:
         on_success: never

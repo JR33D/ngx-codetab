@@ -11,12 +11,19 @@ export class CodeTabComponent implements OnInit {
    @Input() public title: string;
    @Input() public language: string;
    @Input() public source: string;
+   public selected: boolean;
+   private tab: Tab;
 
    constructor(private tabService: TabService) {
    }
 
    ngOnInit() {
-      const tab: Tab = { title: this.title, language: this.language, source: this.source };
-      this.tabService.addTab(tab);
+      this.tab = { title: this.title, language: this.language, source: this.source };
+      this.selected = this.tabService.addTab(this.tab);
+    }
+
+    isSelected() {
+        this.selected = this.tabService.isTabSelected(this.tab);
+        return this.selected;
     }
 }

@@ -47,9 +47,9 @@ If you would like a collection of tabs together simple wrap them in the collecti
 
 ```html
 <ngx-codetab-collection>
-<ngx-codetab [language]="html" [content]="<p>Hello World</p>"></ngx-codetab>
-<ngx-codetab [language]="js" [content]="console.log('loading...');"></ngx-codetab>
-<ngx-codetab [language]="css" [content]="p { color: blue; }"></ngx-codetab>
+    <ngx-codetab [language]="html" [content]="<p>Hello World</p>"></ngx-codetab>
+    <ngx-codetab [language]="js" [content]="console.log('loading...');"></ngx-codetab>
+    <ngx-codetab [language]="css" [content]="p { color: blue; }"></ngx-codetab>
 </ngx-codetab-collection>
 ```
 

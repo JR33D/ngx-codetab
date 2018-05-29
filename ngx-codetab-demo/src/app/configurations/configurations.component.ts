@@ -7,43 +7,43 @@ import { Component } from '@angular/core';
 })
 export class ConfigurationsComponent {
    installCmd = `
-   npm i ngx-chronology --save`;
+   npm i ngx-codetab --save`;
 
    moduleCode = `
     import { NgModule } from '@angular/core';
     import { BrowserModule } from '@angular/platform-browser';
-    import { NgxChronologyModule } from 'ngx-chronology';
+    import { NgxCodeTabModule } from 'ngx-codetab';
 
     @NgModule({
-        imports: [BrowserModule, NgxChronologyModule],
+        imports: [BrowserModule, NgxCodeTabModule],
         declarations: [AppComponent],
     })
     export class AppModule { }`;
 
+    prismInstall = `
+    npm i prismJs --save`;
+
+    prismStyles = `
+    "styles": [
+        "node_modules/prismjs/themes/prism-tomorrow.css"
+     ]`;
+
    interfaceCode = `
-   export interface IChronologyEvent {
-        title: string;
-        icon?: string;
-        faLibrary: 'far' | 'fas' | 'fab';
-        content: string;
+    export interface Tab {
+        title?: string;
+        language: string;
+        source: string;
+        selected?: boolean; // Setup internally starting with first element in array/list
     }`;
 
-   tagUse = `
-   <ngx-chronology [title]="chronologyTitle" [events]="ArrayOfEvents"></ngx-chronology>`;
+   boxUse = `
+   <ngx-codebox [title]="phpItem.title" [language]="phpItem.language" [source]="phpItem.source"></ngx-codebox>`;
 
    templateCode = `
-    <ngx-chronology [events]="events" title="Using custom templates">
-        <ng-template let-event ngxChronologyTitle>
-            <marquee>{{ event.title }}</marquee>
-        </ng-template>
-        <ng-template let-event ngxChronologyContent>
-            <div>
-                Hello I have access to the event object inside of my templates.<br>
-                title: {{ event.title }}<br>
-                content: {{ event.content }}
-            </div>
-        </ng-template>
-    </ngx-chronology>`;
+    <ngx-codetab-collection>
+        <ngx-codebox title="Custom Title" [language]="phpItem.language" [source]="phpItem.source"></ngx-codebox>
+        <ngx-codebox [language]="jsItem.language" [source]="jsItem.source"></ngx-codebox>
+    </ngx-codetab-collection>`;
 
    goToRoute(id) {
       const elm = document.getElementById(id).scrollIntoView();

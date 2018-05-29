@@ -3,6 +3,7 @@
         <span class="section-label">Find More</span>
         <a [routerLink]="['/config']" fragment="Install" (click)="goToRoute('Install')">Installing/Getting Started</a>
         <a [routerLink]="['/config']" fragment="Module" (click)="goToRoute('Module')">Add module to you NgModule</a>
+        <a [routerLink]="['/config']" fragment="Prism" (click)="goToRoute('Prism')">Install and Add PrismJs</a>
         <a [routerLink]="['/config']" fragment="Templates" (click)="goToRoute('Templates')">Templates</a>
         <a [routerLink]="['/config']" fragment="Api" (click)="goToRoute('Api')">API Reference</a>
     </aside>
@@ -19,22 +20,36 @@
         <pre><code>
             {{ moduleCode }}
         </code></pre>
-        <p>The inside of you app.component.html you can use the component directve like so:</p>
+
+        <h3 id="Prism">Install and Add PrismJs</h3>
+        <p>This package requires a peer dependency of prismJs this can be installed with the command:</p>
         <pre><code>
-            {{ tagUse }}
+            {{ prismInstall }}
         </code></pre>
 
+        <p>Once PrismJs is installed you need to update your projects angular.json to include one of the prism themes: </p>
+        <pre><code>
+            {{ prismStyles }}
+        </code></pre>
+        <p>NOTE: Any style can be used but we've tailed tabs content background and stuff to the tomorrow theme. Click to find more about <a href="http://prismjs.com/">PrismJs</a>.</p>
+
         <h2 id="Templates">Template for Title and Content areas</h2>
-        <p>It is possible to override the default display text in area functionality by using templates.
-            The code beow makes use of the directives, ngxChronologyTitle and ngxChronologyContent to add in a custom template for each area.</p>
+        <p>The inside of you app.component.html you can use the box component directve like so:</p>
+        <pre><code>
+            {{ boxUse }}
+        </code></pre>
+
+        <p>It is possible to setup multiple tabs by passing multiple `ngx-codetab` into a `ngx-codetab-collection` component like displayed below.</p>
         <pre><code>
             {{ templateCode }}
         </code></pre>
 
         <h2 id="Api">Api Reference</h2>
-        <p>The array of events passed to ‘ngx-chronology’ component should be a set of objects that match the interface:</p>
+        <p>The general idea of the properties passed to `ngx-codebox` and `ngx-codetab` match the interface:</p>
         <pre><code>
             {{ interfaceCode }}
         </code></pre>
+        <p>In the interface above the title property is optional. The reason for this is to allow for custom titles or tabs based on the components used. If no title is provided the language property is used to label the box or tab.</p>
+
     </div>
 </main>
