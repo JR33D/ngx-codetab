@@ -1,27 +1,28 @@
 language: node_js
 node_js:
- - node
+- node
 before_install:
- - export CHROME_BIN=chromium-browser
- - export DISPLAY=:99.0
- - sh -e /etc/init.d/xvfb start
- - export newPkgVersion=`node -p "require('./package.json').version"`
- - export oldPublishedVersion=`npm view ngx-codetab version`
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- export newPkgVersion=`node -p "require('./package.json').version"`
+- export oldPublishedVersion=`npm view ngx-codetab version`
 before_script:
- - npm i -g --silent @angular/cli
+- npm i -g --silent @angular/cli
 script:
- - npm run build:prod
+- npm run build:prod
 before_deploy:
- - git tag "${newPkgVersion}";
+- git tag "1.0.0";
 deploy:
-  - provider: releases
-    api_key:
-        secure: a0KM16TDR9tGBYQmbDqsVG6MOW5+VsyDSvrvDeMOXWlL8ZJoplDizZFucNvwHpycu4iNvkqcwJhtx5Tf9Wj3lofKJlLDrB664s/G1kX2ywAGj9TGIyNRCPpa+WGS9oGqZOhFY5IPEm1iCrqquHTovaPtg9o4oxkhKgkN0ZQsooYZ3LoR7glT6yy1jXH/jfcWnClktfPyjEh7cXXJeKmmJCrDcre1NkIwDuaAy9D8NOZRbwQsPDqyD5yWSYmICcN6XG0D7u7KSYPTJs+R9t2HOv20Av0aR3/xU/W1atWM+INFrJVSZKyKfoAh2A3YGdsrnLny45w+tS4vbDTw2lEVEl9B6shsxr3DVhz+x/7RCe/FhfwZw1igJE2N3HtywOwMT1kf7N0RRPE9/Yk9GKnVo1Pc/fjaI13wlsgn9rhE1YRvoNTCqQQqK1oUtGqkf4nAJ0dnM9/ayQ3A9IYvo0LHN/DdKsHPncS8wV5+aiXHKYGJ8oQMSl8eos0n+hMMKA4i07VfhmDQK3cEG67xeYH8OACxzqRsBTx69dFuNp7aiFGYI+mPZJ/KKf0m09kvdHO9bYkNr2vZU184QUCxCHdIxLp9GmcC9z1kFqo/6oHCcW4l0R1oLdimKt/Y9VDDUcQjjMjPg1o8b27zH5kgN+ZMX71VWwV5Yy5dihYdbxwellQ=
-    file: "/dist/ngx-codetab"
-    skip_cleanup: true
-    on:
-        branch: master
+- provider: releases
+  api_key:
+    secure: WyF6WAqlpWla7plG5BpE1jnQWJpG6o4gVhfKNS4Zl9VZ433GHCmde1gM4+G9OtgKyNNNN7U7rnKVEOgzW7CVDS5YoxwKhMVhZlKRZdj62GU2st/s3XlORcgZgrYo+1c7xxs/YW4y2o//VdprfCwGvStE2xo5R6c9gru8F5kYjfPr/xvB70FHw+KZJ0qdMbycw3umM/qAKJIDtmAjZ+/UUmLkgiJuzQiAe5355XLI6PsRVOkGu4jJYSFhI6Zz1qRaX7Iq0UQORFX9uXdx6URFjOU7Z3gt/Z/7o9v7yWbohSEfMTX1YyvE5nw9KVLom9ze1R6zmiC4p8ZvDiRWBD6RT6Ag6vQXtyMyuRUpjOX0WGLpzsJFWOER9rvuNXTheAdRTP4RkWPIPUlmbyhseyPJmUDobJ6KtF9rJZe6e8e3NqIGHvlQeytVf5+v0GdOve7h4tVMrDFRt0jKnxQUHdagIPuO6cU3vRiVRXKLWZCCVsIxIkP9elLYP583hyx8PgBGRCsD2maQ3lWBp5GP+oxeueP3Wg4uGVY+DKJS7LoFYe9wnTOu6TFC9YjZdwqiL8R+RKMrdbCU7NVc04miNBBI46pZGuKSBwTyKw9RN8BQO5QpUuA3hRo4EtpxphQ187Zsobnc3yP5mFx6jNgcVlI3KT5RTFfaGXwlaixG+4uekIQ=
+  file: "/dist/ngx-codetab"
+  skip_cleanup: true
+  on:
+    branch: master
 notifications:
-    email:
-        on_success: never
-        on_failure: change
+  email:
+    on_success: never
+    on_failure: change
+
